@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 function Alchoholsensor() {
   const [data, setData] = useState([]);
 
-  const getData = () => {
-    const response = fetch("http://reactjswithiot.hstn.me/API/fetchalchoholapi.php", {
+  const getData = async () => {
+    const response = await fetch("http://reactjswithiot.hstn.me/API/fetchalchoholapi.php", {
       method: "GET",
       mode: 'no-cors',
     })
