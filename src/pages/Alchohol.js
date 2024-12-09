@@ -3,28 +3,37 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Alchoholsensor() {
   const [data, setData] = useState([]);
 
   const getData = async () => {
-    const response = await fetch("https://reactjswithiot.hstn.me/API/fetchalchoholapi.php", {
-      method: "GET",
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network response was not ok " + res.statusText);
-        }
-        return res.json();
-      })
-      .then((res) => {
-        if (res.data) {
-          setData(res.data);
-        } else {
-          console.error("No data available", res.message);
-        }
-      })
-      .catch((error) => console.error("Error fetching data:", error));
+    // const response = await fetch("https://reactjswithiot.hstn.me/API/fetchalchoholapi.php", {
+    //   method: "GET",
+    // })
+    //   .then((res) => {
+    //     if (!res.ok) {
+    //       throw new Error("Network response was not ok " + res.statusText);
+    //     }
+    //     return res.json();
+    //   })
+    //   .then((res) => {
+    //     if (res.data) {
+    //       setData(res.data);
+    //     } else {
+    //       console.error("No data available", res.message);
+    //     }
+    //   })
+    //   .catch((error) => console.error("Error fetching data:", error));
+
+    try {
+      const response = await axios.get("https://reactjswithiot.hstn.me/API/fetchalchoholapi.php");
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+
   };
 
   useEffect(() => {
