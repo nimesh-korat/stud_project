@@ -28,13 +28,8 @@ function Alchoholsensor() {
     //   .catch((error) => console.error("Error fetching data:", error));
 
     try {
-      const response = await axios.get("http://reactjswithiot.hstn.me/API/fetchalchoholapi.php", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "https://stud-project.onrender.com",
-        },
-      });
+      const response = await axios.get("http://reactjswithiot.hstn.me/API/fetchalchoholapi.php");
+
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
