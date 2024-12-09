@@ -8,11 +8,15 @@ function Alchoholsensor() {
   const [data, setData] = useState([]);
 
   const getData = () => {
-    fetch("http://reactjswithiot.hstn.me/API/fetchAlchoholapi.php")
+    const response = fetch("http://reactjswithiot.hstn.me/API/fetchalchoholapi.php", {
+      method: "GET",
+      mode: 'no-cors',
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok " + res.statusText);
         }
+        console.log(res);
         return res.json();
       })
       .then((res) => {
@@ -28,6 +32,7 @@ function Alchoholsensor() {
 
   useEffect(() => {
     getData();
+
   }, []);
 
   return (
