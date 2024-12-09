@@ -32,7 +32,7 @@ function Alchoholsensor() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "https://stud-project.onrender.com",
         },
       });
       setData(response.data);
