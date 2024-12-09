@@ -13,10 +13,10 @@ function Alchoholsensor() {
       mode: 'no-cors',
     })
       .then((res) => {
+        console.log(res);
         if (!res.ok) {
           throw new Error("Network response was not ok " + res.statusText);
         }
-        console.log(res);
         return res.json();
       })
       .then((res) => {
