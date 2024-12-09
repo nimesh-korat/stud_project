@@ -10,7 +10,6 @@ function Alchoholsensor() {
   const getData = async () => {
     const response = await fetch("http://reactjswithiot.hstn.me/API/fetchalchoholapi.php", {
       method: "GET",
-      mode: 'no-cors',
     })
       .then((res) => {
         console.log(res.json());
